@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aishwary & Mutturaj Wedding</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #8e2de2, #ff6a00);
+}
+
+.container {
+    background: rgba(0,0,0,0.5);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.title {
+    font-size: 50px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px gold;
+}
+
+.names {
+    font-size: 45px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #ffd700;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 30px gold, 0 0 60px orange; }
+}
+
+.date {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* Image styling */
+.wedding-img {
+    width: 350px;
+    max-width: 90%;
+    border-radius: 20px;
+    border: 6px solid gold;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    margin: 20px 0;
+    transition: transform 0.4s ease;
+}
+
+.wedding-img:hover {
+    transform: scale(1.05);
+}
+
+.countdown {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 25px auto;
+    padding: 15px 25px;
+    border-radius: 20px;
+    background: rgba(255,215,0,0.2);
+    display: inline-block;
+    box-shadow: 0 0 20px gold;
+}
+
+.venue {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ffd700;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="title">HIREMATH FAIMLY WEDDING</h1>
+
+    <div class="names">
+        Aishwary ❤️ Mutturaj
+    </div>
+
+    <div class="date">
+        26 February 2026 | 10:00 AM
+    </div>
+
+    <!-- USING YOUR FULL PATH -->
+    <img src="file:///C:/Users/Admin/Downloads/aishu.jpeg" 
+         class="wedding-img" 
+         alt="Wedding Image">
+
+    <div id="countdown" class="countdown"></div>
+
+    <div class="venue">
+        Venue: Bhailhongal<br>
+        We request the pleasure of your presence
+    </div>
+
+    <div class="footer">
+        With Love & Blessings 💍✨
+    </div>
+
+</div>
+
+<script>
+
+var weddingDate = new Date("Feb 26, 2026 10:00:00").getTime();
+
+var timer = setInterval(function() {
+
+    var now = new Date().getTime();
+    var distance = weddingDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        days + " Days " + hours + " Hours "
+        + minutes + " Minutes " + seconds + " Seconds ";
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML =
+        "💍 The Wedding Has Begun!";
+    }
+
+}, 1000);
+
+</script>
+
+</body>
+</html>
